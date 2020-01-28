@@ -1,0 +1,48 @@
+.btn {
+    border: none;
+    background-color: #627E9B;
+    padding: 6px 10px;
+    font-size: 8px;
+    cursor: pointer;
+    display: inline-block;
+    color: #fff;
+    margin-left: 5px;
+}
+
+.pagination {
+    display: inline-block;
+    margin-top: 20px;
+    margin-left: 20%;
+}
+  
+.pagination ul a {
+    color: black;
+    float: left;
+    padding: 8px 12px;
+    text-decoration: none;
+    margin-left: 10px;
+}
+
+.pagination ul a.active {
+    background-color: #627E9B;
+    color: white;
+    border-radius: 5px;
+}
+
+.pagination ul a:hover:not(.active) {
+    background-color: #ddd;
+    border-radius: 5px;
+}
+
+.tableDiv {
+    clear: both;
+}
+
+table {
+    margin-top: 30px;
+}
+
+th {
+    padding-right: 120px;
+    font-size: 15px;
+}

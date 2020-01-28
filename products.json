@@ -1,0 +1,152 @@
+[{
+    "id": 1,
+    "name": "keyboard",
+    "category": "electronics",
+    "skuid": "ele001",
+    "price": "$30",
+    "image": ""
+},{
+    "id": 2,
+    "name": "Kettle",
+    "category": "electronics",
+    "skuid": "ele002",
+    "price": "$50",
+    "image": ""
+},{
+    "id": 3,
+    "name": "Phone",
+    "category": "electronics",
+    "skuid": "ele003",
+    "price": "$200",
+    "image": ""
+},{
+    "id": 4,
+    "name": "Laptop",
+    "category": "electronics",
+    "skuid": "ele004",
+    "price": "$1000",
+    "image": ""
+},{
+    "id": 5,
+    "name": "Pen Drive",
+    "category": "electronics",
+    "skuid": "ele005",
+    "price": "$20",
+    "image": ""
+},
+
+
+
+
+{
+    "id": 6,
+    "name": "Shirt",
+    "category": "clothes",
+    "skuid": "cls006",
+    "price": "$30",
+    "image": ""
+},{
+    "id": 7,
+    "name": "Pant",
+    "category": "clothes",
+    "skuid": "cls007",
+    "price": "$50",
+    "image": ""
+},{
+    "id": 8,
+    "name": "Shoes",
+    "category": "clothes",
+    "skuid": "cls008",
+    "price": "$100",
+    "image": ""
+},{
+    "id": 9,
+    "name": "Shorts",
+    "category": "clothes",
+    "skuid": "cls009",
+    "price": "$20",
+    "image": ""
+},{
+    "id": 10,
+    "name": "Belt",
+    "category": "clothes",
+    "skuid": "cls010",
+    "price": "$10",
+    "image": ""
+},
+
+
+{
+    "id": 11,
+    "name": "Mixer Grinder",
+    "category": "appliances",
+    "skuid": "aps011",
+    "price": "$100",
+    "image": ""
+},{
+    "id": 12,
+    "name": "Electric Stove",
+    "category": "appliances",
+    "skuid": "aps012",
+    "price": "$100",
+    "image": ""
+},{
+    "id": 13,
+    "name": "Refrigerator",
+    "category": "appliances",
+    "skuid": "aps013",
+    "price": "$250",
+    "image": ""
+},{
+    "id": 14,
+    "name": "Washing Machine",
+    "category": "appliances",
+    "skuid": "aps014",
+    "price": "$200",
+    "image": ""
+},{
+    "id": 15,
+    "name": "Vaccum Cleaner",
+    "category": "appliances",
+    "skuid": "aps015",
+    "price": "$80",
+    "image": ""
+},
+
+
+{
+    "id": 16,
+    "name": "Knife",
+    "category": "accessories",
+    "skuid": "acs016",
+    "price": "$20",
+    "image": ""
+},{
+    "id": 17,
+    "name": "Phone Charger",
+    "category": "accessories",
+    "skuid": "acs017",
+    "price": "$50",
+    "image": ""
+},{
+    "id": 18,
+    "name": "Hair Comb",
+    "category": "accessories",
+    "skuid": "acs018",
+    "price": "$5",
+    "image": ""
+},{
+    "id": 19,
+    "name": "Wallet",
+    "category": "accessories",
+    "skuid": "acs019",
+    "price": "$30",
+    "image": ""
+},{
+    "id": 20,
+    "name": "Pen Stand",
+    "category": "accessories",
+    "skuid": "acs020",
+    "price": "$20",
+    "image": ""
+}]
