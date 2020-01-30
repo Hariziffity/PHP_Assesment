@@ -139,9 +139,14 @@
                     deleteFromCart($delete_from_cart_value);
                 }
 
+                $subtotal = 0;
+
                 foreach ($_SESSION['cart'] as $key => $value) {
                     foreach (PRODUCTS as $product) {
                         if ($product['skuid'] == $key && $value !== 0){
+                            $price = floatval(ltrim($product['price'], '$'));
+                            $item_price = $price * $value;
+                            $subtotal += (int) $item_price;
                             echo "<div>";
                             echo $product['name'];
                             echo "<form id='$product[skuid]clear' method='GET'><input type=hidden name='search'/><input type=hidden name='categories' value='$_GET[categories]' /><input type=hidden name='show' value='$_GET[show]'/></form>" ;
@@ -152,7 +157,9 @@
                             echo "<hr>";
                         }
                     }
-                }       
+                }
+
+                echo ($subtotal > 0) ? 'Subtotal ' . $subtotal : '';
 
             ?>
         </div>
