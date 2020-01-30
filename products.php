@@ -12,7 +12,8 @@
     <?php
         $products_file = 'products.json';
         $products_data = file_get_contents($products_file);
-        $products = json_decode($products_data, true);     
+        $products = json_decode($products_data, true); 
+        define('PRODUCTS', $products);    
     ?>
 
     <div class="pagination">
@@ -139,7 +140,7 @@
                 }
 
                 foreach ($_SESSION['cart'] as $key => $value) {
-                    foreach ($products as $product) {
+                    foreach (PRODUCTS as $product) {
                         if ($product['skuid'] == $key && $value !== 0){
                             echo "<div>";
                             echo $product['name'];
