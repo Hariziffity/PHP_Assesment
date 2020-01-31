@@ -58,15 +58,43 @@
                 </tr>
 
                 <?php
-                    if($_GET['show'] === 'show_specific') {
+                    if($_GET['search'] !== ''){
+
+                        $search = $_GET["search"];
+
+                        $limit = 5;
+                        $offset = ($page - 1) * $limit;
+                        $total_items = count($products);
+                        $total_pages = ceil($total_items / $limit);
+                        $final_specific_products = array_filter($products, function($obj) use ($search) {
+                            if($search === ''){
+                                return $obj;
+                            }
+                            return stristr($obj['name'], $search );
+                        });
+
+                        foreach ($final_specific_products as $product) : 
+                            $offerprice = empty($product['offerprice']) ?  "" : "<ins>" . $product['offerprice'] . "</ins>";
+                            $price = empty($offerprice) ? $product['price'] : "<del>" . $product['price'] . "</del>";
+                            echo "<tr>";
+                            echo "<td>" . $product['name'] . "</td>";
+                            echo "<td>" . $product['skuid'] . "</td>";
+                            echo "<td>" . $price . " " .  $offerprice . "</td>";
+                            echo "<td style=display:none;><form id='$product[skuid]form' method='GET'><input type=hidden name='search'/><input type=hidden name='categories' value='$_GET[categories]' /><input type=hidden name='show' value='$_GET[show]'/></form></td>";
+                            echo "<td><input form='$product[skuid]form' name=number type=number value=0 min=0 max=1000 id='$product[skuid]' ></td>";
+                            echo "<td><button form='$product[skuid]form' name='add_to_cart' class='btn' type='submit' value='$product[skuid]'>ADD TO CART</button></td>";
+                            echo "</tr>";
+                        endforeach;
+
+                    }else if($_GET['show'] === 'show_specific') {
 
                         $page = !isset($_GET['page']) ? 1 : $_GET['page'];
                         $category = !isset($_GET['categories']) ? 'all' : $_GET['categories'];
-                        $specific_products = array_filter($products, function($var) use ($category) {
+                        $specific_products = array_filter($products, function($obj) use ($category) {
                             if ($category === 'all'){
-                                return $var;
+                                return $obj;
                             }
-                            return ($var['category'] == $category);
+                            return ($obj['category'] == $category);
                         });
 
                         $limit = 5;
