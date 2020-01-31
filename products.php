@@ -76,10 +76,12 @@
                         $final_specific_products = array_splice($specific_products, $offset, $limit);
 
                         foreach ($final_specific_products as $product) : 
+                            $offerprice = empty($product['offerprice']) ?  "" : "<ins>" . $product['offerprice'] . "</ins>";
+                            $price = empty($offerprice) ? $product['price'] : "<del>" . $product['price'] . "</del>";
                             echo "<tr>";
                             echo "<td>" . $product['name'] . "</td>";
                             echo "<td>" . $product['skuid'] . "</td>";
-                            echo "<td>" . $product['price'] . "</td>";
+                            echo "<td>" . $price . " " .  $offerprice . "</td>";
                             echo "<td style=display:none;><form id='$product[skuid]form' method='GET'><input type=hidden name='search'/><input type=hidden name='categories' value='$_GET[categories]' /><input type=hidden name='show' value='$_GET[show]'/></form></td>";
                             echo "<td><input form='$product[skuid]form' name=number type=number value=0 min=0 max=1000 id='$product[skuid]' ></td>";
                             echo "<td><button form='$product[skuid]form' name='add_to_cart' class='btn' type='submit' value='$product[skuid]'>ADD TO CART</button></td>";
@@ -95,10 +97,12 @@
                         $final_specific_products = array_splice($products, $offset, $limit);
 
                         foreach ($final_specific_products as $product) : 
+                            $offerprice = empty($product['offerprice']) ?  "" : "<ins>" . $product['offerprice'] . "</ins>";
+                            $price = empty($offerprice) ? $product['price'] : "<del>" . $product['price'] . "</del>";
                             echo "<tr>";
                             echo "<td>" . $product['name'] . "</td>";
                             echo "<td>" . $product['skuid'] . "</td>";
-                            echo "<td>" . $product['price'] . "</td>";
+                            echo "<td>" . $price . " " .  $offerprice . "</td>";
                             echo "<td style=display:none;><form id='$product[skuid]form' method='GET'><input type=hidden name='search'/><input type=hidden name='categories' value='$_GET[categories]' /><input type=hidden name='show' value='$_GET[show]'/></form></td>";
                             echo "<td><input form='$product[skuid]form' name=number type=number value=0 min=0 max=1000 id='$product[skuid]' ></td>";
                             echo "<td><button form='$product[skuid]form' name='add_to_cart' class='btn' type='submit' value='$product[skuid]'>ADD TO CART</button></td>";
@@ -144,7 +148,9 @@
                 foreach ($_SESSION['cart'] as $key => $value) {
                     foreach (PRODUCTS as $product) {
                         if ($product['skuid'] == $key && $value !== 0){
+                            $offerprice = floatval(ltrim($product['offerprice'], '$'));
                             $price = floatval(ltrim($product['price'], '$'));
+                            $price = empty($offerprice) ? $price : $offerprice;
                             $item_price = $price * $value;
                             $subtotal += (int) $item_price;
                             echo "<div>";
@@ -153,7 +159,7 @@
                             echo "<button form='$product[skuid]clear' name='delete_from_cart' class='btn' type='submit' value='$product[skuid]' style='float:right;'>X</button>";
                             echo "</div>";
                             echo "<div style='clear:both;'></div>";
-                            echo $value . " * " .  $product['price'];
+                            echo $value . " * " .  $price;
                             echo "<hr>";
                         }
                     }
