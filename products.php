@@ -66,7 +66,14 @@
                         $offset = ($page - 1) * $limit;
                         $total_items = count($products);
                         $total_pages = ceil($total_items / $limit);
-                        $final_specific_products = array_filter($products, function($obj) use ($search) {
+                        $category = !isset($_GET['categories']) ? 'all' : $_GET['categories'];
+                        $specific_products = array_filter($products, function($obj) use ($category) {
+                            if ($category === 'all'){
+                                return $obj;
+                            }
+                            return ($obj['category'] == $category);
+                        });
+                        $final_specific_products = array_filter($specific_products, function($obj) use ($search) {
                             if($search === ''){
                                 return $obj;
                             }
