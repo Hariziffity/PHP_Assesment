@@ -41,7 +41,7 @@
 
     <div class="container">
         <div class="tableDiv">
-            <table>
+            <table id='productTable'>
                 <tr>
                     <th>
                         PRODUCT
@@ -79,6 +79,19 @@
                             }
                             return stristr($obj['name'], $search );
                         });
+
+                        if(count($final_specific_products) <= 0){
+                            echo "
+                                <script type=\"text/javascript\">
+                                    document.getElementsByClassName('pagination')[0].style.display='none';
+                                    var table = document.getElementById('productTable');
+                                    for(let i=0; i <table.rows[0].cells.length ; i++) {
+                                        table.rows[0].cells[i].innerText = ''
+                                    }
+                                    document.getElementById('productTable').innerText = 'No Products found';
+                                </script>
+                            ";
+                        }
 
                         foreach ($final_specific_products as $product) : 
                             $offerprice = empty($product['offerprice']) ?  "" : "<ins>" . $product['offerprice'] . "</ins>";
