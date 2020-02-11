@@ -2,8 +2,8 @@
 <html>
     <body>
     <?php
-        include 'header.php';
-        include 'form.php';
+        require 'header.php';
+        require 'form.php';
     ?>
     </body>
 </html>
