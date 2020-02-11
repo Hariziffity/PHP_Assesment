@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-    <form action="products.php" method="get">
+    <form action="products_controller.php" method="get">
         <input name="search" type="text" placeholder="Search...">
         <select name="categories">
             <option value="all">All Categories</option>
